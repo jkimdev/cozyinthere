@@ -17,6 +17,16 @@ struct ContentView: View {
         }
         .padding()
     @ViewBuilder
+    private func dateCapsule(date: String) -> some View {
+        Text(date)
+            .font(.subheadline)
+            .padding()
+            .italic()
+            .foregroundColor(Color("solid.gold"))
+            .background(Color.white)
+            .clipShape(Capsule())
+    }
+    @ViewBuilder
     private func card(imageName: String) -> some View {
         VStack(alignment: .leading) {
             Image(imageName)
