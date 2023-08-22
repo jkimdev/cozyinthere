@@ -37,6 +37,11 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
+                .firebaseAnalytics,
+                .firebaseMessaging,
+                .firebaseCrashlytics,
+                .kingfisher,
+                .swiftyJSON
                 /* Target dependencies can be defined here */
                 /* .framework(path: "framework") */
             ]
