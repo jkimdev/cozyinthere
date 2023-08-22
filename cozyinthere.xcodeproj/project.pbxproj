@@ -3,65 +3,74 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF8CDDA52A9064E6005D492C /* cozyinthereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CDDA42A9064E6005D492C /* cozyinthereApp.swift */; };
-		BF8CDDA72A9064E6005D492C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CDDA62A9064E6005D492C /* ContentView.swift */; };
-		BF8CDDA92A9064E7005D492C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8CDDA82A9064E7005D492C /* Assets.xcassets */; };
-		BF8CDDAC2A9064E7005D492C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8CDDAB2A9064E7005D492C /* Preview Assets.xcassets */; };
-		BF8CDDB62A9064E7005D492C /* cozyinthereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CDDB52A9064E7005D492C /* cozyinthereTests.swift */; };
-		BF8CDDC02A9064E7005D492C /* cozyinthereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CDDBF2A9064E7005D492C /* cozyinthereUITests.swift */; };
-		BF8CDDC22A9064E7005D492C /* cozyinthereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CDDC12A9064E7005D492C /* cozyinthereUITestsLaunchTests.swift */; };
+		09011DD97B449978724C0F47 /* TuistBundle+Cozyinthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5968A7ADBE169E488E606F /* TuistBundle+Cozyinthere.swift */; };
+		0F276B543CDF9EA545EDC03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 292F43E39FBC67781DE9D6BA /* Assets.xcassets */; };
+		5855729658A7AAD9ACD20FE2 /* TuistAssets+Cozyinthere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126DB384AD6006D8C203C55C /* TuistAssets+Cozyinthere.swift */; };
+		6659BEB30AAA8227D8EA48FC /* cozyinthereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0D7D167370A545DE34B185 /* cozyinthereTests.swift */; };
+		89E0893A81A893E92A4D4552 /* cozyinthereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA741F98D65E877FC82A50B /* cozyinthereApp.swift */; };
+		98F1FE59CFB16AA760560325 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0FBB25EFE25D073BABA2B /* ContentView.swift */; };
+		FC1352CE42FF5675E7EC062C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514F00D5786B0C93AA8E4880 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BF8CDDB22A9064E7005D492C /* PBXContainerItemProxy */ = {
+		DAF25CB6E687A74122634912 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BF8CDD992A9064E6005D492C /* Project object */;
+			containerPortal = D883884C64F37282AC8E3A1B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF8CDDA02A9064E6005D492C;
-			remoteInfo = cozyinthere;
-		};
-		BF8CDDBC2A9064E7005D492C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CDD992A9064E6005D492C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF8CDDA02A9064E6005D492C;
+			remoteGlobalIDString = ABE190484827D8FEFBE01B3E;
 			remoteInfo = cozyinthere;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6B11B2E36EF57A88FBEC0B6E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDAB6933788D22D3E9346445 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		BF8CDDA12A9064E6005D492C /* cozyinthere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cozyinthere.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF8CDDA42A9064E6005D492C /* cozyinthereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereApp.swift; sourceTree = "<group>"; };
-		BF8CDDA62A9064E6005D492C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BF8CDDA82A9064E7005D492C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF8CDDAB2A9064E7005D492C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BF8CDDB12A9064E7005D492C /* cozyinthereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cozyinthereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF8CDDB52A9064E7005D492C /* cozyinthereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereTests.swift; sourceTree = "<group>"; };
-		BF8CDDBB2A9064E7005D492C /* cozyinthereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cozyinthereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF8CDDBF2A9064E7005D492C /* cozyinthereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereUITests.swift; sourceTree = "<group>"; };
-		BF8CDDC12A9064E7005D492C /* cozyinthereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0DA741F98D65E877FC82A50B /* cozyinthereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereApp.swift; sourceTree = "<group>"; };
+		126DB384AD6006D8C203C55C /* TuistAssets+Cozyinthere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+Cozyinthere.swift"; sourceTree = "<group>"; };
+		1D0D7D167370A545DE34B185 /* cozyinthereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereTests.swift; sourceTree = "<group>"; };
+		292F43E39FBC67781DE9D6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37EB7EE0BA098D79E8F152B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		514F00D5786B0C93AA8E4880 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		58DD06996766ED820C80EBDF /* cozyinthereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cozyinthereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C5968A7ADBE169E488E606F /* TuistBundle+Cozyinthere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Cozyinthere.swift"; sourceTree = "<group>"; };
+		80E0FBB25EFE25D073BABA2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CAA7F5CA5042332DC55FD93C /* cozyinthere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cozyinthere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BF8CDD9E2A9064E6005D492C /* Frameworks */ = {
+		92FD3A71232328B6F30F4537 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF8CDDAE2A9064E7005D492C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF8CDDB82A9064E7005D492C /* Frameworks */ = {
+		C0777879F9251B1E4ADF5A40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,72 +80,132 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF8CDD982A9064E6005D492C = {
+		1D115C3EC3EA7ECFA2AD284A /* Derived */ = {
 			isa = PBXGroup;
 			children = (
-				BF8CDDA32A9064E6005D492C /* cozyinthere */,
-				BF8CDDB42A9064E7005D492C /* cozyinthereTests */,
-				BF8CDDBE2A9064E7005D492C /* cozyinthereUITests */,
-				BF8CDDA22A9064E6005D492C /* Products */,
+				FB862AEA643033F1006039C3 /* Sources */,
 			);
+			path = Derived;
 			sourceTree = "<group>";
 		};
-		BF8CDDA22A9064E6005D492C /* Products */ = {
+		23D95963301B19FB0311047D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BF8CDDA12A9064E6005D492C /* cozyinthere.app */,
-				BF8CDDB12A9064E7005D492C /* cozyinthereTests.xctest */,
-				BF8CDDBB2A9064E7005D492C /* cozyinthereUITests.xctest */,
+				85F06A24C778107DA05C0298 /* Preview Content */,
+				292F43E39FBC67781DE9D6BA /* Assets.xcassets */,
 			);
-			name = Products;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		BF8CDDA32A9064E6005D492C /* cozyinthere */ = {
+		4041AA2C9E7BB5AE1EB0A525 /* cozyinthereTests */ = {
 			isa = PBXGroup;
 			children = (
-				BF8CDDA42A9064E6005D492C /* cozyinthereApp.swift */,
-				BF8CDDA62A9064E6005D492C /* ContentView.swift */,
-				BF8CDDA82A9064E7005D492C /* Assets.xcassets */,
-				BF8CDDAA2A9064E7005D492C /* Preview Content */,
-			);
-			path = cozyinthere;
-			sourceTree = "<group>";
-		};
-		BF8CDDAA2A9064E7005D492C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CDDAB2A9064E7005D492C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BF8CDDB42A9064E7005D492C /* cozyinthereTests */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CDDB52A9064E7005D492C /* cozyinthereTests.swift */,
+				1D0D7D167370A545DE34B185 /* cozyinthereTests.swift */,
 			);
 			path = cozyinthereTests;
 			sourceTree = "<group>";
 		};
-		BF8CDDBE2A9064E7005D492C /* cozyinthereUITests */ = {
+		56CD84DEC8917DCF1CE1B950 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BF8CDDBF2A9064E7005D492C /* cozyinthereUITests.swift */,
-				BF8CDDC12A9064E7005D492C /* cozyinthereUITestsLaunchTests.swift */,
+				4041AA2C9E7BB5AE1EB0A525 /* cozyinthereTests */,
 			);
-			path = cozyinthereUITests;
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		85F06A24C778107DA05C0298 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				514F00D5786B0C93AA8E4880 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB27844B61FA989642A3419E = {
+			isa = PBXGroup;
+			children = (
+				F0D63681C093529CD4686124 /* Project */,
+				DF4720AD4CCA8FDC35CD908D /* Frameworks */,
+				D8B2983A1429A3D28BC214C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3677717A749D311F3F24F87 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				80E0FBB25EFE25D073BABA2B /* ContentView.swift */,
+				0DA741F98D65E877FC82A50B /* cozyinthereApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D8B2983A1429A3D28BC214C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAA7F5CA5042332DC55FD93C /* cozyinthere.app */,
+				58DD06996766ED820C80EBDF /* cozyinthereTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF4720AD4CCA8FDC35CD908D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0D63681C093529CD4686124 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				1D115C3EC3EA7ECFA2AD284A /* Derived */,
+				23D95963301B19FB0311047D /* Resources */,
+				D3677717A749D311F3F24F87 /* Sources */,
+				56CD84DEC8917DCF1CE1B950 /* Tests */,
+				37EB7EE0BA098D79E8F152B9 /* Info.plist */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		FB862AEA643033F1006039C3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				126DB384AD6006D8C203C55C /* TuistAssets+Cozyinthere.swift */,
+				6C5968A7ADBE169E488E606F /* TuistBundle+Cozyinthere.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF8CDDA02A9064E6005D492C /* cozyinthere */ = {
+		06E50BD86E78B78295ADEDF3 /* cozyinthereTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF8CDDC52A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthere" */;
+			buildConfigurationList = 227966067F06AED1A6BE70E1 /* Build configuration list for PBXNativeTarget "cozyinthereTests" */;
 			buildPhases = (
-				BF8CDD9D2A9064E6005D492C /* Sources */,
-				BF8CDD9E2A9064E6005D492C /* Frameworks */,
-				BF8CDD9F2A9064E6005D492C /* Resources */,
+				208156F5356053817BBD8E81 /* Sources */,
+				72EDF257916803817C2BD4AC /* Resources */,
+				6B11B2E36EF57A88FBEC0B6E /* Embed Frameworks */,
+				92FD3A71232328B6F30F4537 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F24789BE214990BD68BBA02 /* PBXTargetDependency */,
+			);
+			name = cozyinthereTests;
+			productName = cozyinthereTests;
+			productReference = 58DD06996766ED820C80EBDF /* cozyinthereTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ABE190484827D8FEFBE01B3E /* cozyinthere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13F6682B6E9B5AB391A2A94D /* Build configuration list for PBXNativeTarget "cozyinthere" */;
+			buildPhases = (
+				7A18423C7296E0AECDE8BD0A /* Sources */,
+				C6051E83F9DED23420DBE938 /* Resources */,
+				FDAB6933788D22D3E9346445 /* Embed Frameworks */,
+				C0777879F9251B1E4ADF5A40 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,164 +213,168 @@
 			);
 			name = cozyinthere;
 			productName = cozyinthere;
-			productReference = BF8CDDA12A9064E6005D492C /* cozyinthere.app */;
+			productReference = CAA7F5CA5042332DC55FD93C /* cozyinthere.app */;
 			productType = "com.apple.product-type.application";
-		};
-		BF8CDDB02A9064E7005D492C /* cozyinthereTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF8CDDC82A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthereTests" */;
-			buildPhases = (
-				BF8CDDAD2A9064E7005D492C /* Sources */,
-				BF8CDDAE2A9064E7005D492C /* Frameworks */,
-				BF8CDDAF2A9064E7005D492C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF8CDDB32A9064E7005D492C /* PBXTargetDependency */,
-			);
-			name = cozyinthereTests;
-			productName = cozyinthereTests;
-			productReference = BF8CDDB12A9064E7005D492C /* cozyinthereTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BF8CDDBA2A9064E7005D492C /* cozyinthereUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF8CDDCB2A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthereUITests" */;
-			buildPhases = (
-				BF8CDDB72A9064E7005D492C /* Sources */,
-				BF8CDDB82A9064E7005D492C /* Frameworks */,
-				BF8CDDB92A9064E7005D492C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF8CDDBD2A9064E7005D492C /* PBXTargetDependency */,
-			);
-			name = cozyinthereUITests;
-			productName = cozyinthereUITests;
-			productReference = BF8CDDBB2A9064E7005D492C /* cozyinthereUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BF8CDD992A9064E6005D492C /* Project object */ = {
+		D883884C64F37282AC8E3A1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = com.jimmy.cozyinthere;
 				TargetAttributes = {
-					BF8CDDA02A9064E6005D492C = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
-					BF8CDDB02A9064E7005D492C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = BF8CDDA02A9064E6005D492C;
-					};
-					BF8CDDBA2A9064E7005D492C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = BF8CDDA02A9064E6005D492C;
+					06E50BD86E78B78295ADEDF3 = {
+						TestTargetID = ABE190484827D8FEFBE01B3E;
 					};
 				};
 			};
-			buildConfigurationList = BF8CDD9C2A9064E6005D492C /* Build configuration list for PBXProject "cozyinthere" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = CFB692D0FD0A4271B52F4FD3 /* Build configuration list for PBXProject "cozyinthere" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = BF8CDD982A9064E6005D492C;
-			productRefGroup = BF8CDDA22A9064E6005D492C /* Products */;
+			mainGroup = CB27844B61FA989642A3419E;
+			productRefGroup = D8B2983A1429A3D28BC214C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF8CDDA02A9064E6005D492C /* cozyinthere */,
-				BF8CDDB02A9064E7005D492C /* cozyinthereTests */,
-				BF8CDDBA2A9064E7005D492C /* cozyinthereUITests */,
+				ABE190484827D8FEFBE01B3E /* cozyinthere */,
+				06E50BD86E78B78295ADEDF3 /* cozyinthereTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BF8CDD9F2A9064E6005D492C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF8CDDAC2A9064E7005D492C /* Preview Assets.xcassets in Resources */,
-				BF8CDDA92A9064E7005D492C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF8CDDAF2A9064E7005D492C /* Resources */ = {
+		72EDF257916803817C2BD4AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF8CDDB92A9064E7005D492C /* Resources */ = {
+		C6051E83F9DED23420DBE938 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F276B543CDF9EA545EDC03C /* Assets.xcassets in Resources */,
+				FC1352CE42FF5675E7EC062C /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BF8CDD9D2A9064E6005D492C /* Sources */ = {
+		208156F5356053817BBD8E81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8CDDA72A9064E6005D492C /* ContentView.swift in Sources */,
-				BF8CDDA52A9064E6005D492C /* cozyinthereApp.swift in Sources */,
+				6659BEB30AAA8227D8EA48FC /* cozyinthereTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF8CDDAD2A9064E7005D492C /* Sources */ = {
+		7A18423C7296E0AECDE8BD0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8CDDB62A9064E7005D492C /* cozyinthereTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF8CDDB72A9064E7005D492C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF8CDDC02A9064E7005D492C /* cozyinthereUITests.swift in Sources */,
-				BF8CDDC22A9064E7005D492C /* cozyinthereUITestsLaunchTests.swift in Sources */,
+				5855729658A7AAD9ACD20FE2 /* TuistAssets+Cozyinthere.swift in Sources */,
+				09011DD97B449978724C0F47 /* TuistBundle+Cozyinthere.swift in Sources */,
+				98F1FE59CFB16AA760560325 /* ContentView.swift in Sources */,
+				89E0893A81A893E92A4D4552 /* cozyinthereApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BF8CDDB32A9064E7005D492C /* PBXTargetDependency */ = {
+		2F24789BE214990BD68BBA02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF8CDDA02A9064E6005D492C /* cozyinthere */;
-			targetProxy = BF8CDDB22A9064E7005D492C /* PBXContainerItemProxy */;
-		};
-		BF8CDDBD2A9064E7005D492C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF8CDDA02A9064E6005D492C /* cozyinthere */;
-			targetProxy = BF8CDDBC2A9064E7005D492C /* PBXContainerItemProxy */;
+			name = cozyinthere;
+			target = ABE190484827D8FEFBE01B3E /* cozyinthere */;
+			targetProxy = DAF25CB6E687A74122634912 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BF8CDDC32A9064E7005D492C /* Debug */ = {
+		52398750F5775F8492C4FAA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthere;
+				PRODUCT_NAME = cozyinthere;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		62E53B272D32115D1EB70720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthere;
+				PRODUCT_NAME = cozyinthere;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E7B823B75ED505469769030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthereTests;
+				PRODUCT_NAME = cozyinthereTests;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cozyinthere.app/cozyinthere";
+				TEST_TARGET_NAME = cozyinthere;
+			};
+			name = Debug;
+		};
+		908CEE471444A5F3572611B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -328,6 +401,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -345,23 +419,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		BF8CDDC42A9064E7005D492C /* Release */ = {
+		DCB973DE46DFCBCBF5EDA6A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -388,6 +460,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -399,146 +472,31 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		BF8CDDC62A9064E7005D492C /* Debug */ = {
+		E1D8DA99792EB147EA224867 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"cozyinthere/Preview Content\"";
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthere;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		BF8CDDC72A9064E7005D492C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"cozyinthere/Preview Content\"";
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthere;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BF8CDDC92A9064E7005D492C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthereTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
+				PRODUCT_NAME = cozyinthereTests;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cozyinthere.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cozyinthere";
-			};
-			name = Debug;
-		};
-		BF8CDDCA2A9064E7005D492C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthereTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cozyinthere.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cozyinthere";
-			};
-			name = Release;
-		};
-		BF8CDDCC2A9064E7005D492C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthereUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = cozyinthere;
-			};
-			name = Debug;
-		};
-		BF8CDDCD2A9064E7005D492C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5H679H8G3X;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy.cozyinthereUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cozyinthere.app/cozyinthere";
 				TEST_TARGET_NAME = cozyinthere;
 			};
 			name = Release;
@@ -546,43 +504,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF8CDD9C2A9064E6005D492C /* Build configuration list for PBXProject "cozyinthere" */ = {
+		13F6682B6E9B5AB391A2A94D /* Build configuration list for PBXNativeTarget "cozyinthere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF8CDDC32A9064E7005D492C /* Debug */,
-				BF8CDDC42A9064E7005D492C /* Release */,
+				62E53B272D32115D1EB70720 /* Debug */,
+				52398750F5775F8492C4FAA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF8CDDC52A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthere" */ = {
+		227966067F06AED1A6BE70E1 /* Build configuration list for PBXNativeTarget "cozyinthereTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF8CDDC62A9064E7005D492C /* Debug */,
-				BF8CDDC72A9064E7005D492C /* Release */,
+				7E7B823B75ED505469769030 /* Debug */,
+				E1D8DA99792EB147EA224867 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF8CDDC82A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthereTests" */ = {
+		CFB692D0FD0A4271B52F4FD3 /* Build configuration list for PBXProject "cozyinthere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF8CDDC92A9064E7005D492C /* Debug */,
-				BF8CDDCA2A9064E7005D492C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF8CDDCB2A9064E7005D492C /* Build configuration list for PBXNativeTarget "cozyinthereUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF8CDDCC2A9064E7005D492C /* Debug */,
-				BF8CDDCD2A9064E7005D492C /* Release */,
+				908CEE471444A5F3572611B0 /* Debug */,
+				DCB973DE46DFCBCBF5EDA6A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BF8CDD992A9064E6005D492C /* Project object */;
+	rootObject = D883884C64F37282AC8E3A1B /* Project object */;
 }
