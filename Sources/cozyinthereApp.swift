@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct cozyinthereApp: App {
+    @UIApplicationDelegateAdaptor var delegate: AppDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()
