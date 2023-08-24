@@ -40,6 +40,7 @@ let project = Project(
                 .firebaseAnalytics,
                 .firebaseMessaging,
                 .firebaseCrashlytics,
+                .firebaseFireStore,
                 .kingfisher,
                 .swiftyJSON
                 /* Target dependencies can be defined here */
