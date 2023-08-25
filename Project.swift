@@ -26,13 +26,13 @@ import ProjectDescriptionHelpers
 // Creates our project using a helper function defined in ProjectDescriptionHelpers
 let project = Project(
     name: "cozyinthere",
-    organizationName: "com.jimmy.cozyinthere",
+    organizationName: "com.cozyinthere",
     targets: [
         Target(
             name: "cozyinthere",
             platform: .iOS,
             product: .app,
-            bundleId: "com.jimmy.cozyinthere",
+            bundleId: "com.cozyinthere",
             infoPlist: "Info.plist",
             sources: ["Sources/**"],
             resources: ["Resources/**"],
@@ -51,7 +51,7 @@ let project = Project(
             name: "cozyinthereTests",
             platform: .iOS,
             product: .unitTests,
-            bundleId: "com.jimmy.cozyinthereTests",
+            bundleId: "com.cozyinthereTests",
             infoPlist: "Info.plist",
             sources: ["Tests/**"],
             dependencies: [
