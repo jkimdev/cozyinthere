@@ -5,10 +5,13 @@
 //  Created by Jimmy on 2023/08/19.
 //
 
+import Kingfisher
 import SwiftUI
 
 struct ContentView: View {
     @Namespace var animation
+    @State private var news: [NewsPayload] = []
+    @State private var selectedNews: NewsPayload = .init()
     @State private var isPressed: Bool = false
     @State private var showsDetail: Bool = false
     @State private var showContent: Bool = false
@@ -21,8 +24,10 @@ struct ContentView: View {
                     .padding(.bottom)
 
                 VStack(alignment: .leading, spacing: 16) {
-                    dateCapsule(date: "Aug 19")
-                    card(imageName: "stmarylake")
+                    ForEach(news, id: \.id) { item in
+                        dateCapsule(date: item.date)
+                        card(data: item)
+                    }
 //                    dateCapsule()
 //                    card(imageName: "umbagog")
 //                    dateCapsule()
@@ -30,19 +35,27 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .task {
+                self.news = await FireStoreService.shared.fetchNews("news")
+            }
         }
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.9), Color.black.opacity(0.8)]), startPoint: .bottomLeading, endPoint: .topLeading)
         )
         .ignoresSafeArea(edges: .bottom)
-
         .overlay {
             if showsDetail {
-                VStack {
-                    card(imageName: "stmarylake")
-                    Spacer()
+                ScrollView(showsIndicators: false) {
+                    VStack {
+                        card(data: news.first ?? .init())
+                        if showContent {
+                            Text(news.first?.content ?? "")
+                                .font(.footnote)
+                                .padding()
+                        }
+                    }
                 }
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .top)
                 .background()
                 .onTapGesture {
                     withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
@@ -66,24 +79,26 @@ struct ContentView: View {
     }
 
     @ViewBuilder
-    private func card(imageName: String) -> some View {
+    private func card(data: NewsPayload) -> some View {
         VStack(alignment: .leading) {
-            Image(imageName)
+            KFImage(URL(string: data.image))
                 .resizable()
                 .aspectRatio(16 / 9, contentMode: .fit)
             VStack(alignment: .leading) {
                 HStack {
-                    Image("writer.image")
+                    KFImage(URL(string: data.authorImage))
+                        .resizable()
+                        .frame(width: 24, height: 24)
                         .clipShape(Circle())
-                    Text("Chaeho Lim")
+                    Text(data.author)
                         .font(.system(size: 12))
                 }
                 HStack(alignment: .lastTextBaseline) {
-                    Text("St. Mary Lake")
+                    Text(data.title)
                         .font(.title3)
                         .bold()
                     Spacer()
-                    Text("5 min read")
+                    Text("\(data.min) min read")
                         .font(.caption2)
                         .foregroundColor(.gray)
                 }
@@ -93,6 +108,7 @@ struct ContentView: View {
         .background()
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .onTapGesture {
+            selectedNews = data
             withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
                 showsDetail = true
             }
@@ -100,7 +116,7 @@ struct ContentView: View {
                 showContent = true
             }
         }
-        .matchedGeometryEffect(id: "card", in: animation)
+        .matchedGeometryEffect(id: data.id, in: animation)
     }
 }
 
