@@ -16,51 +16,44 @@ struct ContentView: View {
     @State private var showsDetail: Bool = false
     @State private var showContent: Bool = false
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                Text("COZYINTHERE")
-                    .font(.title3)
-                    .foregroundColor(Color("solid.green"))
-                    .padding(.bottom)
-
+        NavigationView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(news, id: \.id) { item in
-                        dateCapsule(date: item.date)
+                        header(date: item.date)
                         card(data: item)
+                        Divider()
                     }
-//                    dateCapsule()
-//                    card(imageName: "umbagog")
-//                    dateCapsule()
-//                    card(imageName: "rainbowlake")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .task {
+                    self.news = await FireStoreService.shared.fetchDocuments("news")
+                }
             }
-            .task {
-                self.news = await FireStoreService.shared.fetchNews("news")
-            }
-        }
-        .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.9), Color.black.opacity(0.8)]), startPoint: .bottomLeading, endPoint: .topLeading)
-        )
-        .ignoresSafeArea(edges: .bottom)
-        .overlay {
-            if showsDetail {
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        card(data: news.first ?? .init())
-                        if showContent {
-                            Text(news.first?.content ?? "")
-                                .font(.footnote)
-                                .padding()
+            .padding()
+            .background(LinearGradient(gradient: Gradient(colors: [Color("backgroundColor"), Color("backgroundColor").opacity(0.5), Color("backgroundColor").opacity(0.1)]), startPoint: .bottomTrailing, endPoint: .topLeading)
+            )
+            .ignoresSafeArea(edges: .bottom)
+            .overlay {
+                if showsDetail {
+                    ScrollView(showsIndicators: false) {
+                        VStack {
+                            card(data: news.first ?? .init())
+                            if showContent {
+                                Text(news.first?.content ?? "")
+                                    .font(.system(size: 16))
+                                    .lineSpacing(4)
+                                    .padding()
+                            }
                         }
                     }
-                }
-                .ignoresSafeArea(edges: .top)
-                .background()
-                .onTapGesture {
-                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                        showsDetail = false
-                        showContent = false
+                    .ignoresSafeArea(edges: .top)
+                    .background()
+                    .onTapGesture {
+                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                            showsDetail = false
+                            showContent = false
+                        }
                     }
                 }
             }
@@ -68,14 +61,23 @@ struct ContentView: View {
     }
 
     @ViewBuilder
-    private func dateCapsule(date: String) -> some View {
-        Text(date)
-            .font(.subheadline)
-            .padding()
-            .italic()
-            .foregroundColor(Color("solid.gold"))
-            .background(Color.white)
-            .clipShape(Capsule())
+    private func header(date: String) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("8월 27일 일요일")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+                Text("Latest")
+                    .font(.largeTitle)
+                    .bold()
+            }
+            Spacer()
+            NavigationLink {
+                Text("Setting")
+            } label: {
+                Image(systemName: "gearshape")
+            }
+        }
     }
 
     @ViewBuilder
@@ -97,6 +99,7 @@ struct ContentView: View {
                     Text(data.title)
                         .font(.title3)
                         .bold()
+                        .lineLimit(2)
                     Spacer()
                     Text("\(data.min) min read")
                         .font(.caption2)
@@ -105,8 +108,8 @@ struct ContentView: View {
             }
             .padding()
         }
-        .background()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+//        .background()
+//        .clipShape(RoundedRectangle(cornerRadius: 16))
         .onTapGesture {
             selectedNews = data
             withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {

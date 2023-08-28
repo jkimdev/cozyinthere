@@ -21,7 +21,7 @@ final class FireStoreService {
         self.firestore = Firestore.firestore()
     }
 
-    func fetchNews(_ path: String) async -> [NewsPayload] {
+    func fetchDocuments(_ path: String) async -> [NewsPayload] {
         let collection = firestore.collection(path)
         let data = try? await collection
             .getDocuments()
