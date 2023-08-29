@@ -90,7 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 # MacOS
-.DS_Store
+*.DS_Store
 *.xcuserstate
 cozyinthere.xcodeproj/project.pbxproj
 cozyinthere.xcworkspace/contents.xcworkspacedata
