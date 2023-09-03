@@ -21,12 +21,21 @@ final class FireStoreService {
         self.firestore = Firestore.firestore()
     }
 
-    func fetchDocuments(_ path: String) async -> [NewsPayload] {
-        let collection = firestore.collection(path)
+    func fetchNews() async -> [NewsPayload] {
+        let collection = firestore.collection("news")
         let data = try? await collection
             .getDocuments()
             .documents
             .map { NewsPayload($0) }
+        return data ?? []
+    }
+    
+    func fetchRecommend() async -> [RecommendPayload] {
+        let collection = firestore.collection("recommend")
+        let data = try? await collection
+            .getDocuments()
+            .documents
+            .map { RecommendPayload($0) }
         return data ?? []
     }
 }

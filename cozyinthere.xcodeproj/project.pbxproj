@@ -53,7 +53,10 @@
 		AECD26EBF8D4B78BCCFFCE17 /* GoogleUtilities_MethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33819681D31EE4CA10E1DE86 /* GoogleUtilities_MethodSwizzler.framework */; platformFilter = ios; };
 		AFF281246447AFE8A15778E5 /* gRPC_CXX_Target.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7895EB8D17F162F739D564 /* gRPC_CXX_Target.framework */; platformFilter = ios; };
 		B808846B1E1E5C974DF4C1D8 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F6D978C2E792AF411F9A1 /* Kingfisher.framework */; platformFilter = ios; };
+		BF0B453B2A9F23D8006FF83F /* RecommendPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0B453A2A9F23D8006FF83F /* RecommendPayload.swift */; };
+		BFB7ED002AA22E8500F91446 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7ECFF2AA22E8500F91446 /* CarouselView.swift */; };
 		BFD2444C2A9CA2A8003E3EBB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BFD2444B2A9CA2A8003E3EBB /* Settings.bundle */; };
+		BFD2444F2A9DEFDC003E3EBB /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2444E2A9DEFDC003E3EBB /* RecommendView.swift */; };
 		C5B9974DCAF9C2C962781A18 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B434D211FE127939D4B9BC /* Promises.framework */; platformFilter = ios; };
 		C66CF2AB05B7573BC0A940DE /* FirebaseAnalyticsWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97158AA0616C92D86BFB8CBB /* FirebaseAnalyticsWrapper.framework */; };
 		CA40C76326C29DBCB1F46EB3 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFD51F195AA3AB5A6E24D15 /* Firebase.framework */; };
@@ -150,8 +153,11 @@
 		B26AC9701DBD9811D1111F3D /* FirebaseAnalyticsTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseAnalyticsTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62298C6927272BE30587E5A /* GoogleUtilities_Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B434D211FE127939D4B9BC /* Promises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Promises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0B453A2A9F23D8006FF83F /* RecommendPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendPayload.swift; sourceTree = "<group>"; };
 		BFA4DE332A98C5EA0080C75B /* cozyinthere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cozyinthere.entitlements; sourceTree = "<group>"; };
+		BFB7ECFF2AA22E8500F91446 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		BFD2444B2A9CA2A8003E3EBB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BFD2444E2A9DEFDC003E3EBB /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		C0D56E78FE60EF556A7C7811 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		C12A51F65359FB740BE8D709 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		C2B64A111BC1DCA6F89F41E7 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				3C90BC6668011563CABE5E12 /* NewsPayload.swift */,
+				BF0B453A2A9F23D8006FF83F /* RecommendPayload.swift */,
 			);
 			path = Payload;
 			sourceTree = "<group>";
@@ -440,7 +447,9 @@
 				5CD4FB27674BA2A020440004 /* Provider */,
 				754ACD26AF13D9BFC7F6CFEF /* AppDelegate.swift */,
 				80E0FBB25EFE25D073BABA2B /* ContentView.swift */,
+				BFD2444E2A9DEFDC003E3EBB /* RecommendView.swift */,
 				0DA741F98D65E877FC82A50B /* cozyinthereApp.swift */,
+				BFB7ECFF2AA22E8500F91446 /* CarouselView.swift */,
 				BFD2444B2A9CA2A8003E3EBB /* Settings.bundle */,
 			);
 			path = Sources;
@@ -652,10 +661,13 @@
 			files = (
 				5855729658A7AAD9ACD20FE2 /* TuistAssets+Cozyinthere.swift in Sources */,
 				09011DD97B449978724C0F47 /* TuistBundle+Cozyinthere.swift in Sources */,
+				BFB7ED002AA22E8500F91446 /* CarouselView.swift in Sources */,
+				BFD2444F2A9DEFDC003E3EBB /* RecommendView.swift in Sources */,
 				1B00C473AFE128C3857F0C0E /* TuistPlists+Cozyinthere.swift in Sources */,
 				89E7831E48E18D5789CA15AF /* AppDelegate.swift in Sources */,
 				98F1FE59CFB16AA760560325 /* ContentView.swift in Sources */,
 				8338D73298AFFA3ED2479ADE /* NewsPayload.swift in Sources */,
+				BF0B453B2A9F23D8006FF83F /* RecommendPayload.swift in Sources */,
 				94809EDC4F0F9D90909AAD74 /* FireStoreService.swift in Sources */,
 				89E0893A81A893E92A4D4552 /* cozyinthereApp.swift in Sources */,
 			);
