@@ -25,14 +25,16 @@ struct ContentView: View {
                         Divider()
                     }
                 }
+                .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .task {
-                    self.news = await FireStoreService.shared.fetchDocuments("news")
-                }
+
+                RecommendView()
             }
-            .padding()
             .background(LinearGradient(gradient: Gradient(colors: [Color("backgroundColor"), Color("backgroundColor").opacity(0.5), Color("backgroundColor").opacity(0.1)]), startPoint: .bottomTrailing, endPoint: .topLeading)
             )
+            .task {
+                self.news = await FireStoreService.shared.fetchNews()
+            }
             .ignoresSafeArea(edges: .bottom)
             .overlay {
                 if showsDetail {
@@ -62,21 +64,13 @@ struct ContentView: View {
 
     @ViewBuilder
     private func header(date: String) -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("8월 27일 일요일")
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                Text("Latest")
-                    .font(.largeTitle)
-                    .bold()
-            }
-            Spacer()
-            NavigationLink {
-                Text("Setting")
-            } label: {
-                Image(systemName: "gearshape")
-            }
+        VStack(alignment: .leading, spacing: 0) {
+            Text("8월 27일 일요일")
+                .font(.caption2)
+                .foregroundColor(.gray)
+            Text("Latest")
+                .font(.largeTitle)
+                .bold()
         }
     }
 
@@ -106,10 +100,8 @@ struct ContentView: View {
                         .foregroundColor(.gray)
                 }
             }
-            .padding()
+            .padding(.horizontal)
         }
-//        .background()
-//        .clipShape(RoundedRectangle(cornerRadius: 16))
         .onTapGesture {
             selectedNews = data
             withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
