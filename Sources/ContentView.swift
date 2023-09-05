@@ -42,7 +42,7 @@ struct ContentView: View {
                         VStack {
                             card(data: news.first ?? .init())
                             if showContent {
-                                Text(news.first?.content ?? "")
+                                Text(news.first?.content.replacingOccurrences(of: "\\n", with: "\n") ?? "")
                                     .font(.system(size: 16))
                                     .lineSpacing(4)
                                     .padding()
@@ -51,12 +51,18 @@ struct ContentView: View {
                     }
                     .ignoresSafeArea(edges: .top)
                     .background()
-                    .onTapGesture {
-                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                            showsDetail = false
-                            showContent = false
-                        }
-                    }
+                    .safeAreaInset(edge: .top, content: {
+                        Image(systemName: "xmark.circle")
+                            .imageScale(.large)
+                            .onTapGesture {
+                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                                    showsDetail = false
+                                    showContent = false
+                                }
+                            }
+                            .padding(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    })
                 }
             }
         }
