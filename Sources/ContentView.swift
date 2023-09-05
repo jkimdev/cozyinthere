@@ -16,56 +16,56 @@ struct ContentView: View {
     @State private var showsDetail: Bool = false
     @State private var showContent: Bool = false
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 16) {
-                    ForEach(news, id: \.id) { item in
-                        header(date: item.date)
-                        card(data: item)
-                        Divider()
-                    }
-                }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                RecommendView()
-            }
-            .background(LinearGradient(gradient: Gradient(colors: [Color("backgroundColor"), Color("backgroundColor").opacity(0.5), Color("backgroundColor").opacity(0.1)]), startPoint: .bottomTrailing, endPoint: .topLeading)
-            )
-            .task {
-                self.news = await FireStoreService.shared.fetchNews()
-            }
-            .ignoresSafeArea(edges: .bottom)
-            .overlay {
-                if showsDetail {
-                    ScrollView(showsIndicators: false) {
-                        VStack {
-                            card(data: news.first ?? .init())
-                            if showContent {
-                                Text(news.first?.content.replacingOccurrences(of: "\\n", with: "\n") ?? "")
-                                    .font(.system(size: 16))
-                                    .lineSpacing(4)
-                                    .padding()
-                            }
+        if !showsDetail {
+            NavigationView {
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        ForEach(news, id: \.id) { item in
+                            header(date: item.date)
+                            card(data: item)
+                            Divider()
                         }
                     }
-                    .ignoresSafeArea(edges: .top)
-                    .background()
-                    .safeAreaInset(edge: .top, content: {
-                        Image(systemName: "xmark.circle")
-                            .imageScale(.large)
-                            .onTapGesture {
-                                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                                    showsDetail = false
-                                    showContent = false
-                                }
-                            }
-                            .padding(.trailing)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    })
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    RecommendView()
                 }
+                .background(LinearGradient(gradient: Gradient(colors: [Color("backgroundColor"), Color("backgroundColor").opacity(0.5), Color("backgroundColor").opacity(0.1)]), startPoint: .bottomTrailing, endPoint: .topLeading)
+                )
+                .task {
+                    self.news = await FireStoreService.shared.fetchNews()
+                }
+                .ignoresSafeArea(edges: .bottom)
             }
         }
+            if showsDetail {
+                ScrollView(showsIndicators: false) {
+                    VStack {
+                        card(data: news.first ?? .init())
+                        if showContent {
+                            Text(news.first?.content.replacingOccurrences(of: "\\n", with: "\n") ?? "")
+                                .font(.system(size: 16))
+                                .lineSpacing(4)
+                                .padding()
+                        }
+                    }
+                }
+                .ignoresSafeArea(edges: .top)
+                .background()
+                .safeAreaInset(edge: .top, content: {
+                    Image(systemName: "xmark.circle")
+                        .imageScale(.large)
+                        .onTapGesture {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                                showsDetail = false
+                                showContent = false
+                            }
+                        }
+                        .padding(.trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                })
+            }
     }
 
     @ViewBuilder
@@ -117,7 +117,7 @@ struct ContentView: View {
                 showContent = true
             }
         }
-        .matchedGeometryEffect(id: data.id, in: animation)
+        .matchedGeometryEffect(id: "card", in: animation)
     }
 }
 
