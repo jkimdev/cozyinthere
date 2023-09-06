@@ -22,11 +22,9 @@
 public enum CozyinthereAsset {
   public enum Assets {
     public static let accentColor = CozyinthereColors(name: "AccentColor")
+    public static let backgroundColor = CozyinthereColors(name: "backgroundColor")
     public static let icybay = CozyinthereImages(name: "icybay")
-    public static let lightGold = CozyinthereColors(name: "light.gold")
-    public static let lightPink = CozyinthereColors(name: "light.pink")
     public static let rainbowlake = CozyinthereImages(name: "rainbowlake")
-    public static let solidGold = CozyinthereColors(name: "solid.gold")
     public static let solidGreen = CozyinthereColors(name: "solid.green")
     public static let stmarylake = CozyinthereImages(name: "stmarylake")
     public static let umbagog = CozyinthereImages(name: "umbagog")
