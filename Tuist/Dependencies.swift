@@ -13,7 +13,8 @@ let dependencies = Dependencies(
     .init([
         .firebase,
         .kingfisher,
-        .swiftyJSON
+        .swiftyJSON,
+        .architecture
     ]),
     platforms: [.iOS]
 )

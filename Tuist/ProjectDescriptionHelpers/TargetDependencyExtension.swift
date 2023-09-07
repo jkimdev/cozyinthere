@@ -14,12 +14,14 @@ public extension TargetDependency {
     static let firebaseFireStore: TargetDependency = .external(name: "FirebaseFirestoreSwift")
     static let swiftyJSON: TargetDependency = .external(name: "SwiftyJSON")
     static let kingfisher: TargetDependency = .external(name: "Kingfisher")
+    static let architecture: TargetDependency = .external(name: "ComposableArchitecture")
 }
 
 public extension Package {
     static let firebase: Package = .package(url: "https://github.com/firebase/firebase-ios-sdk.git", .branch("master"))
     static let swiftyJSON: Package = .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", .branch("master"))
     static let kingfisher: Package = .package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
+    static let architecture: Package = .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .branch("main"))
 }
 
 // MARK: SourceFile

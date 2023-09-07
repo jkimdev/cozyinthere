@@ -42,7 +42,8 @@ let project = Project(
                 .firebaseCrashlytics,
                 .firebaseFireStore,
                 .kingfisher,
-                .swiftyJSON
+                .swiftyJSON,
+                .architecture
                 /* Target dependencies can be defined here */
                 /* .framework(path: "framework") */
             ]
