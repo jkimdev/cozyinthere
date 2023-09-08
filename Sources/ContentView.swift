@@ -2,49 +2,105 @@
 //  ContentView.swift
 //  cozyinthere
 //
-//  Created by Jimmy on 2023/08/19.
+//  Created by Jimmy on 2023/09/08.
+//  Copyright © 2023 com.cozyinthere. All rights reserved.
 //
 
+import ComposableArchitecture
 import Kingfisher
 import SwiftUI
 
-struct ContentView: View {
-    @Namespace var animation
-    @State private var news: [NewsPayload] = []
-    @State private var selectedNews: NewsPayload = .init()
-    @State private var isPressed: Bool = false
-    @State private var showsDetail: Bool = false
-    @State private var showContent: Bool = false
-    var body: some View {
-        if !showsDetail {
-            NavigationView {
-                ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 16) {
-                        ForEach(news, id: \.id) { item in
-                            header(date: item.date)
-                            card(data: item)
-                            Divider()
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    RecommendView()
+struct Main: Reducer {
+    struct State: Equatable {
+        var news: [NewsPayload] = []
+        var selectedNews: NewsPayload = .init()
+        var isPressed: Bool = false
+        var showsDetail: Bool = false
+        var showContent: Bool = false
+    }
+
+    enum Action: Equatable {
+        case fetchNews
+        case fetchNewsResponse([NewsPayload])
+        case onTapNews(NewsPayload)
+        case onTapCloseButton
+    }
+
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .fetchNews:
+                return .run { send in
+                    let data = await FireStoreService.shared.fetchNews()
+                    await send(.fetchNewsResponse(data))
                 }
-                .background(LinearGradient(gradient: Gradient(colors: [Color("backgroundColor"), Color("backgroundColor").opacity(0.5), Color("backgroundColor").opacity(0.1)]), startPoint: .bottomTrailing, endPoint: .topLeading)
-                )
-                .task {
-                    self.news = await FireStoreService.shared.fetchNews()
+            case .fetchNewsResponse(let data):
+                state.news = data
+                return .none
+            case .onTapNews(let news):
+                state.selectedNews = news
+                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                    state.showsDetail = true
                 }
-                .ignoresSafeArea(edges: .bottom)
+                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.2)) {
+                    state.showContent = true
+                }
+
+                return .none
+
+            case .onTapCloseButton:
+                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                    state.showsDetail = false
+                    state.showContent = false
+                }
+                return .none
             }
         }
-            if showsDetail {
+    }
+}
+
+struct MainView: View {
+    let store: StoreOf<Main>
+    @Namespace var animation
+
+    var body: some View {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            if viewStore.showsDetail {
+                NavigationView {
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 16) {
+                            ForEach(viewStore.news, id: \.id) { item in
+                                header(date: item.date)
+                                card(data: item)
+                                Divider()
+                            }
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                        RecommendView()
+                    }
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(
+                                colors: [Color("backgroundColor"),
+                                         Color("backgroundColor").opacity(0.5),
+                                         Color("backgroundColor").opacity(0.1)]),
+                            startPoint: .bottomTrailing,
+                            endPoint: .topLeading)
+                    )
+                    .task {
+                        viewStore.send(.fetchNews)
+                    }
+                    .ignoresSafeArea(edges: .bottom)
+                }
+            }
+            if viewStore.showsDetail {
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        card(data: news.first ?? .init())
-                        if showContent {
-                            Text(news.first?.content.replacingOccurrences(of: "\\n", with: "\n") ?? "")
+                        card(data: viewStore.selectedNews)
+                        if viewStore.showContent {
+                            Text(viewStore.selectedNews.content.replacingOccurrences(of: "\\n", with: "\n"))
                                 .font(.system(size: 16))
                                 .lineSpacing(4)
                                 .padding()
@@ -57,15 +113,13 @@ struct ContentView: View {
                     Image(systemName: "xmark.circle")
                         .imageScale(.large)
                         .onTapGesture {
-                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                                showsDetail = false
-                                showContent = false
-                            }
+                            viewStore.send(.onTapCloseButton)
                         }
                         .padding(.trailing)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 })
             }
+        }
     }
 
     @ViewBuilder
@@ -81,7 +135,7 @@ struct ContentView: View {
     }
 
     @ViewBuilder
-    private func card(data: NewsPayload) -> some View {
+    func card(data: NewsPayload) -> some View {
         VStack(alignment: .leading) {
             KFImage(URL(string: data.image))
                 .resizable()
@@ -109,20 +163,8 @@ struct ContentView: View {
             .padding(.horizontal)
         }
         .onTapGesture {
-            selectedNews = data
-            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                showsDetail = true
-            }
-            withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.2)) {
-                showContent = true
-            }
+            store.send(.onTapNews(data))
         }
         .matchedGeometryEffect(id: "card", in: animation)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

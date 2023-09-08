@@ -12,7 +12,9 @@ struct cozyinthereApp: App {
     @UIApplicationDelegateAdaptor var delegate: AppDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(store: .init(initialState: Main.State(), reducer: {
+                Main()
+            }))
         }
     }
 }
