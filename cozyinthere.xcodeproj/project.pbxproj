@@ -31,7 +31,6 @@
 		4520206D84039278879D15E5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D406308C3C421C5280B35B8E /* CoreTelephony.framework */; };
 		4A275310AAB4444CD2686971 /* gRPC-C++.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3CF1C8ACF1D24C55038DED /* gRPC-C++.xcframework */; };
 		4ABA63C3A5E72B3DEEB65603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC923ABE4344F611E140AF27 /* UIKit.framework */; };
-		4AEF57FB1800E4859EE29066 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B89CE96A738E910B854DF /* RecommendView.swift */; };
 		4F3D577F15A097E2C4FE1706 /* RecommendPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301381B9166AF1DE625A3BD4 /* RecommendPayload.swift */; };
 		5214E42D809A758B4C372D20 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B64A111BC1DCA6F89F41E7 /* nanopb.framework */; platformFilter = ios; };
 		53BB7340CBF2DBCDF4D01E55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7614E7FA71010461A87F92 /* StoreKit.framework */; };
@@ -64,6 +63,7 @@
 		AFF281246447AFE8A15778E5 /* gRPC_CXX_Target.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7895EB8D17F162F739D564 /* gRPC_CXX_Target.framework */; platformFilter = ios; };
 		B46EC0AC785159F2C8FE43E9 /* CustomDump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61BEA031D6CD4BF590614B2 /* CustomDump.framework */; platformFilter = ios; };
 		B808846B1E1E5C974DF4C1D8 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1F6D978C2E792AF411F9A1 /* Kingfisher.framework */; platformFilter = ios; };
+		BF350CF22AB047B300FA9257 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF350CF12AB047B300FA9257 /* RecommendView.swift */; };
 		BFA3DE652AAAB58100FBA7A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3DE642AAAB58100FBA7A1 /* ContentView.swift */; };
 		C5B9974DCAF9C2C962781A18 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B434D211FE127939D4B9BC /* Promises.framework */; platformFilter = ios; };
 		C66CF2AB05B7573BC0A940DE /* FirebaseAnalyticsWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97158AA0616C92D86BFB8CBB /* FirebaseAnalyticsWrapper.framework */; };
@@ -127,7 +127,6 @@
 		1D0D7D167370A545DE34B185 /* cozyinthereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cozyinthereTests.swift; sourceTree = "<group>"; };
 		1D25D53E14DA840477F0032D /* Clocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Clocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9CD7DE480301E90512624D /* GoogleUtilities_UserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_UserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F6B89CE96A738E910B854DF /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		216C9194F1216A49BC98DDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2735F469034B04986252C71B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		292F43E39FBC67781DE9D6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +173,7 @@
 		B62298C6927272BE30587E5A /* GoogleUtilities_Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities_Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B434D211FE127939D4B9BC /* Promises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Promises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD33EBF2B934525D6E49A994 /* ComposableArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ComposableArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF350CF12AB047B300FA9257 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		BFA3DE642AAAB58100FBA7A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0D56E78FE60EF556A7C7811 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		C12A51F65359FB740BE8D709 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
@@ -477,7 +477,7 @@
 				754ACD26AF13D9BFC7F6CFEF /* AppDelegate.swift */,
 				EAE5B83EA263F5B7AAA7A9A7 /* CarouselView.swift */,
 				0DA741F98D65E877FC82A50B /* cozyinthereApp.swift */,
-				1F6B89CE96A738E910B854DF /* RecommendView.swift */,
+				BF350CF12AB047B300FA9257 /* RecommendView.swift */,
 				BFA3DE642AAAB58100FBA7A1 /* ContentView.swift */,
 			);
 			path = Sources;
@@ -701,12 +701,12 @@
 				09011DD97B449978724C0F47 /* TuistBundle+Cozyinthere.swift in Sources */,
 				1B00C473AFE128C3857F0C0E /* TuistPlists+Cozyinthere.swift in Sources */,
 				89E7831E48E18D5789CA15AF /* AppDelegate.swift in Sources */,
+				BF350CF22AB047B300FA9257 /* RecommendView.swift in Sources */,
 				BFA3DE652AAAB58100FBA7A1 /* ContentView.swift in Sources */,
 				06BCFA535AB47ABA2AB0DC38 /* CarouselView.swift in Sources */,
 				8338D73298AFFA3ED2479ADE /* NewsPayload.swift in Sources */,
 				4F3D577F15A097E2C4FE1706 /* RecommendPayload.swift in Sources */,
 				94809EDC4F0F9D90909AAD74 /* FireStoreService.swift in Sources */,
-				4AEF57FB1800E4859EE29066 /* RecommendView.swift in Sources */,
 				89E0893A81A893E92A4D4552 /* cozyinthereApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

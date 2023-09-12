@@ -65,7 +65,7 @@ struct MainView: View {
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            if viewStore.showsDetail {
+            if !viewStore.showsDetail {
                 NavigationView {
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 16) {
@@ -78,7 +78,9 @@ struct MainView: View {
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                        RecommendView()
+                        RecommendView(store: .init(initialState: Recommend.State(), reducer: {
+                            Recommend()
+                        }))
                     }
                     .background(
                         LinearGradient(

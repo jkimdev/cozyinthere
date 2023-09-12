@@ -14,13 +14,12 @@ struct CarouselView<Content: View, T: Identifiable>: View {
     
     var spacing: CGFloat
     var trailingSpace: CGFloat
-    @Binding var index: Int
+    @State var index: Int = 0
     
-    init(spacing: CGFloat = 15, trailingSpace: CGFloat = 100, index: Binding<Int>, items: [T], @ViewBuilder content: @escaping (T) -> Content) {
+    init(spacing: CGFloat = 15, trailingSpace: CGFloat = 100, items: [T], @ViewBuilder content: @escaping (T) -> Content) {
         self.list = items
         self.spacing = spacing
         self.trailingSpace = trailingSpace
-        self._index = index
         self.content = content
     }
     
