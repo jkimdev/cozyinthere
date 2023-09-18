@@ -7,8 +7,8 @@
 //
 
 import ComposableArchitecture
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct Recommend: Reducer {
     struct State: Equatable {
@@ -17,7 +17,7 @@ struct Recommend: Reducer {
 
     enum Action: Equatable {
         case fetchRecommend
-        case recommendResponse([RecommendPayload])
+        case recommendResponse(TaskResult<[RecommendPayload]>)
     }
 
     var body: some ReducerOf<Self> {
@@ -25,11 +25,16 @@ struct Recommend: Reducer {
             switch action {
             case .fetchRecommend:
                 return .run { send in
-                    let data = await FireStoreService.shared.fetchRecommend()
-                    await send(.recommendResponse(data))
+                    let result = await TaskResult {
+                        let data = await FireStoreService.shared.fetchRecommend()
+                        return data
+                    }
+                    await send(.recommendResponse(result))
                 }
-            case .recommendResponse(let data):
+            case .recommendResponse(.success(let data)):
                 state.recommend = data
+                return .none
+            default:
                 return .none
             }
         }
@@ -53,29 +58,27 @@ struct RecommendView: View {
                 .padding([.leading, .bottom])
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-                if !viewStore.state.recommend.isEmpty {
-                    CarouselView(trailingSpace: 40, items: viewStore.state.recommend) { slider in
-                        ZStack(alignment: .bottomLeading) {
-                            KFImage(URL(string: slider.image))
-                                .resizable()
-                                .aspectRatio(16 / 9, contentMode: .fill)
-                                .cornerRadius(16)
+                CarouselView(trailingSpace: 40, items: viewStore.recommend) { slider in
+                    ZStack(alignment: .bottomLeading) {
+                        KFImage(URL(string: slider.image))
+                            .resizable()
+                            .aspectRatio(16 / 9, contentMode: .fill)
+                            .cornerRadius(16)
 
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(slider.title)
-                                    .font(.callout)
-                                Text(slider.subtitle)
-                                    .font(.caption)
-                            }
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(
-                                LinearGradient(gradient: Gradient(colors: [.clear, .black.opacity(0.7), .black.opacity(0.7)]),
-                                               startPoint: .top, endPoint: .bottom)
-                                    .cornerRadius(16)
-                            )
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(slider.title)
+                                .font(.callout)
+                            Text(slider.subtitle)
+                                .font(.caption)
                         }
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [.clear, .black.opacity(0.7), .black.opacity(0.7)]),
+                                           startPoint: .top, endPoint: .bottom)
+                                .cornerRadius(16)
+                        )
                     }
                 }
             }

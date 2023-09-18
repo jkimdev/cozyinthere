@@ -17,42 +17,52 @@ struct Main: Reducer {
         var isPressed: Bool = false
         var showsDetail: Bool = false
         var showContent: Bool = false
+        var recommend: Recommend.State = .init()
     }
 
     enum Action: Equatable {
         case fetchNews
-        case fetchNewsResponse([NewsPayload])
+        case fetchNewsResponse(TaskResult<[NewsPayload]>)
         case onTapNews(NewsPayload)
+        case onContentAppear
         case onTapCloseButton
+        case recommend(Recommend.Action)
     }
 
     var body: some ReducerOf<Self> {
+        Scope(state: \.recommend, action: /Action.recommend) {
+            Recommend()
+        }
         Reduce { state, action in
             switch action {
             case .fetchNews:
                 return .run { send in
-                    let data = await FireStoreService.shared.fetchNews()
-                    await send(.fetchNewsResponse(data))
-                }
-            case .fetchNewsResponse(let data):
-                state.news = data
-                return .none
-            case .onTapNews(let news):
-                state.selectedNews = news
-                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                    state.showsDetail = true
-                }
-                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.2)) {
-                    state.showContent = true
+                    let result = await TaskResult {
+                        let data = await FireStoreService.shared.fetchNews()
+                        return data
+                    }
+                    await send(.fetchNewsResponse(result))
                 }
 
+            case .fetchNewsResponse(.success(let data)):
+                state.news = data
+                return .none
+
+            case .onTapNews(let news):
+                state.selectedNews = news
+                state.showsDetail = true
+                return .none
+
+            case .onContentAppear:
+                state.showContent = true
                 return .none
 
             case .onTapCloseButton:
-                withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                    state.showsDetail = false
-                    state.showContent = false
-                }
+                state.showsDetail = false
+                state.showContent = false
+                return .none
+
+            default:
                 return .none
             }
         }
@@ -65,61 +75,62 @@ struct MainView: View {
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            if !viewStore.showsDetail {
-                NavigationView {
+            NavigationView {
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        ForEach(viewStore.news, id: \.id) { item in
+                            header(date: item.date)
+                            card(data: item)
+                            Divider()
+                        }
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    RecommendView(
+                        store: self.store.scope(
+                            state: \.recommend,
+                            action: Main.Action.recommend))
+                }
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(
+                            colors: [Color("backgroundColor"),
+                                     Color("backgroundColor").opacity(0.5),
+                                     Color("backgroundColor").opacity(0.1)]),
+                        startPoint: .bottomTrailing,
+                        endPoint: .topLeading)
+                )
+                .task {
+                    viewStore.send(.fetchNews)
+                }
+                .ignoresSafeArea(edges: .bottom)
+            }
+            .overlay {
+                if viewStore.showsDetail {
                     ScrollView(showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: 16) {
-                            ForEach(viewStore.news, id: \.id) { item in
-                                header(date: item.date)
-                                card(data: item)
-                                Divider()
+                        VStack {
+                            card(data: viewStore.selectedNews)
+                            if viewStore.showContent {
+                                Text(viewStore.selectedNews.content.replacingOccurrences(of: "\\n", with: "\n"))
+                                    .font(.system(size: 16))
+                                    .lineSpacing(4)
+                                    .padding()
                             }
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                        RecommendView(store: .init(initialState: Recommend.State(), reducer: {
-                            Recommend()
-                        }))
                     }
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [Color("backgroundColor"),
-                                         Color("backgroundColor").opacity(0.5),
-                                         Color("backgroundColor").opacity(0.1)]),
-                            startPoint: .bottomTrailing,
-                            endPoint: .topLeading)
-                    )
-                    .task {
-                        viewStore.send(.fetchNews)
-                    }
-                    .ignoresSafeArea(edges: .bottom)
+                    .ignoresSafeArea(edges: .top)
+                    .background()
+                    .safeAreaInset(edge: .top, content: {
+                        Image(systemName: "xmark.circle")
+                            .imageScale(.large)
+                            .onTapGesture {
+                                viewStore.send(.onTapCloseButton, animation: .interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6))
+                            }
+                            .padding(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    })
                 }
-            }
-            if viewStore.showsDetail {
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        card(data: viewStore.selectedNews)
-                        if viewStore.showContent {
-                            Text(viewStore.selectedNews.content.replacingOccurrences(of: "\\n", with: "\n"))
-                                .font(.system(size: 16))
-                                .lineSpacing(4)
-                                .padding()
-                        }
-                    }
-                }
-                .ignoresSafeArea(edges: .top)
-                .background()
-                .safeAreaInset(edge: .top, content: {
-                    Image(systemName: "xmark.circle")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            viewStore.send(.onTapCloseButton)
-                        }
-                        .padding(.trailing)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                })
             }
         }
     }
@@ -165,7 +176,8 @@ struct MainView: View {
             .padding(.horizontal)
         }
         .onTapGesture {
-            store.send(.onTapNews(data))
+            store.send(.onTapNews(data), animation: .interactiveSpring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6))
+            store.send(.onContentAppear, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.2))
         }
         .matchedGeometryEffect(id: "card", in: animation)
     }
