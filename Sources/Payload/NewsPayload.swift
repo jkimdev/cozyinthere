@@ -31,14 +31,14 @@ struct NewsPayload: Codable, Equatable {
         self.min = min
     }
     
-    init(_ snapshot: QueryDocumentSnapshot) {
-        self.id = snapshot.documentID
-        self.title = snapshot["title"] as? String ?? ""
-        self.content = snapshot["content"] as? String ?? ""
-        self.image = snapshot["image"] as? String ?? ""
-        self.author = snapshot["author"] as? String ?? ""
-        self.authorImage = snapshot["authorImage"] as? String ?? ""
-        self.date = snapshot["date"] as? String ?? ""
-        self.min = snapshot["min"] as? Int ?? 0
+    init(_ entity: NewsEntity) {
+        self.id = entity.id
+        self.title = entity.title
+        self.content = entity.content
+        self.image = entity.image
+        self.author = entity.author
+        self.authorImage = entity.authorImage
+        self.date = entity.date
+        self.min = entity.min
     }
 }

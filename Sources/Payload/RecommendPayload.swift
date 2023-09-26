@@ -24,11 +24,11 @@ struct RecommendPayload: Equatable, Identifiable {
         self.contents = contents
     }
 
-    init(_ snapshot: QueryDocumentSnapshot) {
-        self.id = snapshot.documentID
-        self.title = snapshot["title"] as? String ?? ""
-        self.subtitle = snapshot["subtitle"] as? String ?? ""
-        self.image = snapshot["image"] as? String ?? ""
-        self.contents = snapshot["contents"] as? String ?? ""
+    init(_ entity: RecommendEntity) {
+        self.id = entity.id
+        self.title = entity.title
+        self.subtitle = entity.subtitle
+        self.image = entity.image
+        self.contents = entity.contents
     }
 }
