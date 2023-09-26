@@ -11,13 +11,15 @@ import Kingfisher
 import SwiftUI
 
 struct Recommend: Reducer {
+    @Dependency(\.mainUseCase) var mainUseCase
+    
     struct State: Equatable {
         var recommend: [RecommendPayload] = []
     }
 
     enum Action: Equatable {
         case fetchRecommend
-        case recommendResponse(TaskResult<[RecommendPayload]>)
+        case recommendResponse(TaskResult<[RecommendEntity]>)
     }
 
     var body: some ReducerOf<Self> {
@@ -26,13 +28,13 @@ struct Recommend: Reducer {
             case .fetchRecommend:
                 return .run { send in
                     let result = await TaskResult {
-                        let data = await FireStoreService.shared.fetchRecommend()
+                        let data = await mainUseCase.fetchRecommend()
                         return data
                     }
                     await send(.recommendResponse(result))
                 }
             case .recommendResponse(.success(let data)):
-                state.recommend = data
+                state.recommend = data.map { RecommendPayload($0) }
                 return .none
             default:
                 return .none

@@ -11,6 +11,8 @@ import Kingfisher
 import SwiftUI
 
 struct Main: Reducer {
+    @Dependency(\.mainUseCase) var mainUseCase
+
     struct State: Equatable {
         var news: [NewsPayload] = []
         var selectedNews: NewsPayload = .init()
@@ -22,7 +24,7 @@ struct Main: Reducer {
 
     enum Action: Equatable {
         case fetchNews
-        case fetchNewsResponse(TaskResult<[NewsPayload]>)
+        case fetchNewsResponse(TaskResult<[NewsEntity]>)
         case onTapNews(NewsPayload)
         case onContentAppear
         case onTapCloseButton
@@ -38,14 +40,14 @@ struct Main: Reducer {
             case .fetchNews:
                 return .run { send in
                     let result = await TaskResult {
-                        let data = await FireStoreService.shared.fetchNews()
+                        let data = await mainUseCase.fetchNews()
                         return data
                     }
                     await send(.fetchNewsResponse(result))
                 }
 
             case .fetchNewsResponse(.success(let data)):
-                state.news = data
+                state.news = data.map { NewsPayload($0) }
                 return .none
 
             case .onTapNews(let news):
